@@ -22,7 +22,13 @@ p = zeros(size(X, 1), 1);
 %
 
 
+a1 = [ones(m, 1) X]; #input data (first layer)
+z2 = a1*Theta1';     #(hidden layer inputs)
+a2 = [ones(size(z2, 1), 1) sigmoid(z2)]; #hidden layer output
+z3 = a2*Theta2';     #input for 3rd layer (output layer) 
+a3 = sigmoid(z3); #output data
 
+[p_max, p] = max(a3, [], 2);
 
 
 
